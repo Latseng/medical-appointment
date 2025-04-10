@@ -319,13 +319,14 @@ const SelectedModal = ({
               {recaptchaError !== "" && (
                 <span className="text-red-500 ml-20">{recaptchaError}</span>
               )}
-              <ReCAPTCHA
-                className="my-4 ml-20"
-                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                onChange={handlerecaptchaChange}
-              />
+              <div className="flex justify-center">
+                <ReCAPTCHA
+                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                  onChange={handlerecaptchaChange}
+                />
+              </div>
               <Form.Item>
-                <Flex gap="middle" justify="center">
+                <Flex className="mt-4" gap="middle" justify="center">
                   <Button onClick={() => handleCancel("doctor")}>返回</Button>
 
                   <Button

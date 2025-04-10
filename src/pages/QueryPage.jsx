@@ -486,7 +486,7 @@ const QueryPage = () => {
           <Form
             form={form}
             name="login"
-            className="mx-auto mt-8 text-center rounded-2xl md:w-1/2 bg-white p-4"
+            className="mx-auto mt-8 text-center rounded-2xl md:w-1/2 bg-white p-8"
             initialValues={{
               remember: true,
             }}
@@ -513,11 +513,12 @@ const QueryPage = () => {
             <Form.Item label="生日">
               <DatePicker form={form}></DatePicker>
             </Form.Item>
-            <ReCAPTCHA
-              className="my-4"
-              sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-              onChange={handlerecaptchaChange}
-            />
+            <div className="flex justify-center">
+              <ReCAPTCHA
+                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                onChange={handlerecaptchaChange}
+              />
+            </div>
             {recaptchaError !== "" && (
               <span className="text-red-500">{recaptchaError}</span>
             )}
@@ -525,7 +526,7 @@ const QueryPage = () => {
               <Button
                 block
                 loading={isLoading}
-                className="mb-4"
+                className="my-4"
                 type="primary"
                 htmlType="submit"
               >
@@ -647,11 +648,12 @@ const QueryPage = () => {
                   {formDataError !== "" && (
                     <span className="text-red-500">{formDataError}</span>
                   )}
-                  <ReCAPTCHA
-                    className="my-4"
-                    sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                    onChange={handlerecaptchaChange}
-                  />
+                  <div className="flex justify-center">
+                    <ReCAPTCHA
+                      sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                      onChange={handlerecaptchaChange}
+                    />
+                  </div>
                   {/* recaptcaha 錯誤 */}
                   {recaptchaError !== "" && (
                     <span className="text-red-500">{recaptchaError}</span>

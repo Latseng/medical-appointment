@@ -42,13 +42,18 @@ const LoginPage = () => {
       content: "登入中",
       duration: 0,
     });
+
     const data = await login(value);
+    
     if (data === "帳號或密碼錯誤") {
       error();
       return;
     }
+
     messageApi.destroy();
+
     const result = await CSRF_request();
+    
     const expiresIn = 3600; //設定登入時效為一小時 = 3600秒
     if (result.status === "success") {
       dispatch(
